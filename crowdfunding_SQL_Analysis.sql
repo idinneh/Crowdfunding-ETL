@@ -116,12 +116,12 @@ SELECT * FROM email_contacts_remaining_goal_amount;
 
 SELECT b.email, b.first_name, b.last_name, b.cf_id,
 	c.company_name, c.description, c.end_date, (c.goal - c.pledged) AS "Left of Goal"
-INTO email_backers_remaining_goal_amount
+--INTO email_backers_remaining_goal_amount
 FROM backers AS b
 JOIN campaign AS c
 ON c.cf_id = b.cf_id
 WHERE c.outcome = 'live'
-ORDER BY b.email ASC;
+ORDER BY last_name ASC;
 
 -- Check the table
 SELECT * FROM email_backers_remaining_goal_amount;
